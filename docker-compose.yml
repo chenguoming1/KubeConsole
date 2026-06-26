@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  kube-console:
+    build: .
+    platform: linux/amd64
+    container_name: kube-console
+    ports:
+      - "3000:3000"
+    tty: true
+    stdin_open: true
+    volumes:
+      - ~/.docker-dev-aliases.sh:/home/dev/.docker-dev-aliases.sh
+      - ~/develop:/home/dev/develop
+      - ~/.aws:/home/dev/.aws          # persist AWS CLI credentials
+      - ~/.kube:/home/dev/.kube        # persist kubeconfig
+      - ./projects:/home/dev/projects  # optional: mount local projects
+    environment:
+      - AWS_PROFILE=carro-stg
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-MY_GEMINI_API_KEY}
+      - APP_URL=${APP_URL:-http://localhost:3000}

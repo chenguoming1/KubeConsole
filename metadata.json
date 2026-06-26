@@ -1,0 +1,6 @@
+{
+  "name": "Kubernetes Management Dashboard",
+  "description": "An interactive, high-fidelity Kubernetes console and secure CLI shell to deploy pods, monitor cluster health, manage namespaces, and run kubectl commands with RBAC and Gemini Copilot assistance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
